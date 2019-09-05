@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include "proj1.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,5 +17,14 @@ int main(int argc, char *argv[])
 		exit(0);
 	}
 
+	CheckBinaryName(argv);
 
+}
+
+void CheckBinaryName(char ** argv)
+{
+	struct stat buffer;
+	int status;
+	status = lstat(argv[1], &buffer);
+	printf("%d", status);
 }
