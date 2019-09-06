@@ -16,15 +16,16 @@ int main(int argc, char *argv[])
 		printf("You have not provided any names of binary files\n");
 		exit(0);
 	}
-
-	CheckBinaryName(argv);
+	int status;
+	status = CheckBinaryName(argv);
 
 }
 
-void CheckBinaryName(char ** argv)
+int CheckBinaryName(char ** argv)
 {
 	struct stat buffer;
 	int status;
 	status = lstat(argv[1], &buffer);
 	printf("%d", status);
+	return status;
 }
